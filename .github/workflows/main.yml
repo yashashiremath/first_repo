@@ -57,7 +57,7 @@ jobs:
           sudo apt-get install awscli
           declare LNAME="pandas_package"
           aws lambda publish-layer-version --layer-name $LNAME --description "Testing again" --license-info "MIT" --zip-file fileb://pandas_package.zip --compatible-runtimes python3.6 python3.7 python3.8
-          declare LARN=`aws lambda list-layer-versions --layer-name $LNAME --query 'LayerVersions[0].LayerVersionArn'`
+          declare LARN=`aws lambda list-layer-versions --layer-name $LNAME --query 'LayerVersions[0].LayerVersionArn' | cut -d "\"" -f 2`
           declare FNAME="hello-world-test"
           aws lambda update-function-configuration --function-name $FNAME --layers $LARN
     # aws s3 cp pandas_package.zip s3://lambdatestdar/pandas_package.zip
