@@ -50,8 +50,11 @@ jobs:
           sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 2
           mkdir -p build/python/lib/python3.8/site-packages
           sudo apt install python3-pip
-          pip3 install pandas numpy -t build/python/lib/python3.8/site-packages 
-          cd build
+          pip3 install pandas numpy -t build/python/lib/python3.8/site-packages
+          pip3 install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib -t build/python/lib/python3.8/site-packages
+          cd /home/ubuntu/build/python/lib/python3.8/site-packages
+          git clone -b staging https://github.com/DARDataServices/DAX_Package.git
+          cd /home/ubuntu/build
           sudo apt-get install zip
           zip -r pandas_package.zip .
           sudo apt-get install awscli
