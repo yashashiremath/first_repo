@@ -55,7 +55,8 @@ jobs:
           pip3 install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib -t build/python/lib/python3.8/site-packages
           cd ~
           echo `ls`
-          git clone -b staging https://${{ secrets.GIT_SECRET_USER }}:${{ secrets.GIT_SECRET_PASS }}@github.com/DARDataServices/DAX_Package.git ~/build/python/lib/python3.8/site-packages/DAX_Package
+          cd ~/build/python/lib/python3.8/site-packages/
+          git clone -b staging https://${{ secrets.GIT_SECRET_USER }}:${{ secrets.GIT_SECRET_PASS }}@github.com/DARDataServices/DAX_Package.git
           cd ~/build
           sudo apt-get install zip
           zip -r pandas_package.zip .
