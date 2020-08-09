@@ -41,8 +41,18 @@ jobs:
         runtime: python3.8
         s3_bucket: lambdatestdar
     
+    #Cloning DAX_Package
+    - name: Cloning Dax_package
+     
+      
     # Runs a set of commands using the runners shell; THIS DOESN'T WORK
     - name: Run a multi-line script
+      uses: DARDataServices/DAX_Package@v1
+      with:
+        name: 'Yashas Hiremath'
+        email: 'yashas.hiremath@digitalassetresearch.com'
+        actor: 'YashasHiremath'
+        token: '${{ secrets.GIT_CRED }}'
       run: |
           sudo apt-get update
           sudo apt-get install python3.8 -y
