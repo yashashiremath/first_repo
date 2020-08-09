@@ -56,7 +56,7 @@ jobs:
           cd ~
           echo `ls`
           cd ~/build/python/lib/python3.8/site-packages/
-          git clone -b staging https://yashashiremath:${{ secrets.GIT_SECRET_PASS }}@github.com/DARDataServices/DAX_Package.git
+          git clone -b staging https://${{ secrets.GIT_SECRET_USER }}:${{ secrets.GIT_SECRET_PASS }}@github.com/DARDataServices/DAX_Package.git
           cd ~/build
           sudo apt-get install zip
           zip -r pandas_package.zip .
