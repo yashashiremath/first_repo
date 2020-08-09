@@ -41,18 +41,6 @@ jobs:
         runtime: python3.8
         s3_bucket: lambdatestdar
     
-    #Cloning DAX_Package
-    - name: Cloning Dax_package
-      uses: DARDataServices/DAX_Package@v1
-      with:
-        name: 'Yashas Hiremath'
-        email: 'yashas.hiremath@digitalassetresearch.com'
-        actor: 'YashasHiremath'
-        token: '${{ secrets.GIT_CRED }}'
-        run: |
-            mkdir -p build/python/lib/python3.8/site-packages
-            git clone -b staging https://github.com/DARDataServices/DAX_Package.git
-        
     # Runs a set of commands using the runners shell; THIS DOESN'T WORK
     - name: Run a multi-line script
       run: |
@@ -61,14 +49,14 @@ jobs:
           sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
           sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 2
           cd ~
-          
+          mkdir -p build/python/lib/python3.8/site-packages
           sudo apt install python3-pip
           pip3 install pandas numpy -t build/python/lib/python3.8/site-packages
           pip3 install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib -t build/python/lib/python3.8/site-packages
           cd ~
           echo `ls`
           cd ~/build/python/lib/python3.8/site-packages
-          
+          git clone -b staging https://yashas.hiremath@digitalassetresearch.com:${{ secrets.GIT_CRED }}@github.com/DARDataServices/DAX_Package.git
           cd ~/build
           sudo apt-get install zip
           zip -r pandas_package.zip .
