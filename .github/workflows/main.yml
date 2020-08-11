@@ -54,8 +54,7 @@ jobs:
           pip3 install --upgrade pip
           pip3 install pandas numpy -t build/python/lib/python3.8/site-packages
           pip3 install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib -t build/python/lib/python3.8/site-packages
-          pip3 install mysql-connector-python-rf
-          pip3 install mysqlclient SQLAlchemy
+          pip3 install mysql-connector mysqlclient SQLAlchemy -t build/python/lib/python3.8/site-packages
           cd ~
           echo `ls`
           cd ~/build/python/lib/python3.8/site-packages/
