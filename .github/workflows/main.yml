@@ -53,7 +53,8 @@ jobs:
           sudo apt install python3-pip
           pip3 install pandas numpy -t build/python/lib/python3.8/site-packages
           pip3 install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib -t build/python/lib/python3.8/site-packages
-          pip3 install mysql-connector mysqlclient SQLAlchemy
+          pip3 install mysql-connector-python-rf
+          pip3 install mysqlclient SQLAlchemy
           cd ~
           echo `ls`
           cd ~/build/python/lib/python3.8/site-packages/
